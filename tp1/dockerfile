@@ -1,0 +1,11 @@
+# Utilisation de l'image de WordPress basée sur PHP
+FROM wordpress:latest
+
+# Ajout des variables d'environnements pour la connexion à la BDD
+ENV WORDPRESS_DB_HOST=db \
+    WORDPRESS_DB_USER=ADMIN \
+    WORDPRESS_DB_PASSWORD=ADMIN \
+    WORDPRESS_DB_NAME=projetDocker
+
+# Copie du fichier wp-config.php
+COPY wp-config.php /var/www/html/wp-config.php
