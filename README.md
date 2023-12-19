@@ -35,8 +35,3 @@ Il est composer comme ce qui était demander dans l'énoncer
 - Un .env pour mettre les version de kibana et elasticsearch
 - un docker compose pour les différents noeuds es01, es02 et es03
 - Deux fichier yml pour la configuration de kibana et elasticsearch
-
-
-
-
-C:\Users\grego\AppData\Local\Docker\wsl
