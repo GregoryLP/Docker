@@ -8,26 +8,27 @@ services:
     networks:
       - frontend_network
       - backend_network
+    env_file:
+      - .env
     depends_on:
       - mariadb
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: admin
-      WORDPRESS_DB_PASSWORD: admin
-      WORDPRESS_DB_NAME: projetDocker
 
   mariadb:
-    image: mariadb:latest
+    image: gregorylp/mariadb:latest
+    ports:
+      - "3306:3306"
     networks:
       - backend_network
     volumes:
-      - ./my.cnf:/etc/mysql/my.cnf
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: admin
+      - db_data:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+    env_file:
+      - .env
 
 networks:
   frontend_network:
   backend_network:
+
+volumes:
+  db_data:
+
